@@ -11,12 +11,15 @@ import { MatInputModule } from '@angular/material/input';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { BoardItemComponent } from './board-item/board-item.component';
 import { CommentItemComponent } from './comment-item/comment-item.component';
+import {DialogModule} from "../components/dialog/dialog.module";
+import { ColorPanelComponent } from './color-panel/color-panel.component';
 
 @NgModule({
   declarations: [
     BoardComponent,
     BoardItemComponent,
-    CommentItemComponent
+    CommentItemComponent,
+    ColorPanelComponent
   ],
   imports: [
     CommonModule,
@@ -25,7 +28,8 @@ import { CommentItemComponent } from './comment-item/comment-item.component';
     MatIconModule,
     MatButtonModule,
     MatExpansionModule,
-    FormsModule
+    FormsModule,
+    DialogModule
   ],
   exports: [
     BoardComponent

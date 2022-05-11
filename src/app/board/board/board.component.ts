@@ -16,11 +16,47 @@ export class BoardComponent implements OnInit {
   ngOnInit(): void {
     console.log('BOARD - INIT')
   }
-  todo = ['Get to work', 'Pick up groceries', 'Go home', 'Fall asleep'];
 
-  done = ['Get up', 'Brush teeth', 'Take a shower', 'Check e-mail', 'Walk dog'];
 
-  // progress = ['Get up','Brush teeth', 'Take a shower','Check e-mail','walk dog']
+  onColorChange(color: string, columnId: number) {
+    this.boardService.changeColumnColor(color, columnId)
+  }
+
+  onAddCard(text: string, columnId: number) {
+    if(text) {
+      this.boardService.addCard(text, columnId)
+    }
+  }
+
+  onDeleteColumn(columnId: number) {
+    this.boardService.deleteColumn(columnId)
+  }
+
+  onDeleteCard(cardId: number, columnId: number) {
+    this.boardService.deleteCard(cardId, columnId)
+  }
+
+
+  onChangeLike(event: {card: any, increase: boolean}, columnId: number){
+    const { card: {id},increase } = event
+    this.boardService.changeLike(id, columnId, increase)
+  }
+
+  onAddComment(event: {id: number,text: string}, columnId: number){
+    this.boardService.addComment(columnId, event.id, event.text)
+  }
+
+  onDeleteComment(comment: { id: any; }, columnId: any, item: { id: any; }){
+    this.boardService.deleteComment(columnId, item.id, comment.id)
+  }
+
+
+  //
+  // todo = ['Get to work', 'Pick up groceries', 'Go home', 'Fall asleep'];
+  //
+  // done = ['Get up', 'Brush teeth', 'Take a shower', 'Check e-mail', 'Walk dog'];
+  //
+  // // progress = ['Get up','Brush teeth', 'Take a shower','Check e-mail','walk dog']
 
   drop(event: CdkDragDrop<string[]>) {
     if (event.previousContainer === event.container) {
