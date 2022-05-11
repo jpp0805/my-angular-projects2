@@ -51,8 +51,6 @@ export class BoardComponent implements OnInit {
   }
 
 
-
-
   // progress = ['Get up','Brush teeth', 'Take a shower','Check e-mail','walk dog']
 
   drop(event: CdkDragDrop<string[]>) {
