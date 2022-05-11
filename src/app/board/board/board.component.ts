@@ -51,12 +51,9 @@ export class BoardComponent implements OnInit {
   }
 
 
-  //
-  // todo = ['Get to work', 'Pick up groceries', 'Go home', 'Fall asleep'];
-  //
-  // done = ['Get up', 'Brush teeth', 'Take a shower', 'Check e-mail', 'Walk dog'];
-  //
-  // // progress = ['Get up','Brush teeth', 'Take a shower','Check e-mail','walk dog']
+
+
+  // progress = ['Get up','Brush teeth', 'Take a shower','Check e-mail','walk dog']
 
   drop(event: CdkDragDrop<string[]>) {
     if (event.previousContainer === event.container) {
